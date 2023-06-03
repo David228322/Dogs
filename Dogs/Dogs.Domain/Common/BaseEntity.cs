@@ -14,7 +14,7 @@ namespace Dogs.Domain.Common
         /// <summary>
         /// Gets or sets the ID of the entity.
         /// </summary>
-        public Guid Id { get; set; }
+        public int Id { get; set; }
 
         /// <summary>
         /// Gets or sets the date and time the entity was created.

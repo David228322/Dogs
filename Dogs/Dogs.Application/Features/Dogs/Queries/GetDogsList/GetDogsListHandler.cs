@@ -22,7 +22,7 @@ namespace Dogs.Application.Features.Dogs.Queries.GetDogsList
 
         public async Task<IEnumerable<DogDto>> Handle(GetDogsListQuery request, CancellationToken cancellationToken)
         {
-            var orders = await _dogRepository.GetDogsByFilterAsync(request.PaginationFilter, request.SortFilter);
+            var orders = await _dogRepository.GetFilteredAsync(request.PaginationFilter, request.SortFilter);
             var result = _mapper.Map<IEnumerable<DogDto>>(orders);
             return result;
         }
