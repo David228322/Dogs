@@ -1,0 +1,14 @@
+version: '3.4'
+
+services:
+  dogsdb:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    
+  portaine:
+    image: portainer/portainer-ce
+  
+  dogs.api:
+    image: ${DOCKER_REGISTRY-}dogsapi
+    build:
+      context: .
+      dockerfile: Dogs.API/Dockerfile

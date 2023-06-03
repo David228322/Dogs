@@ -1,0 +1,33 @@
+version: "3.4"
+
+services:
+  dogsdb:
+    container_name: dogsdb
+    environment:
+      SA_PASSWORD: ${DB_PASSWORD}
+      ACCEPT_EULA: "Y"
+    restart: always
+    ports:
+      - "1433:1433"
+
+  portaine:
+    container_name: portaine
+    restart: always
+    ports:
+      - "9000:9000"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - portaine_data:/data
+
+  dogs.api:
+    container_name: dogs.api
+    environment:
+      ASPNETCORE_ENVIRONMENT: ${ASPNETCORE_ENVIRONMENT}
+      ConnectionStrings__DogsConnectionString: ${DB_CONNECTION}"
+    depends_on:
+      - dogsdb
+    ports:
+      - "8001:80"
+
+volumes:
+  portaine_data:

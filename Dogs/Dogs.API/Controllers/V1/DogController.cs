@@ -44,7 +44,7 @@ public class DogController : ControllerBase
     /// <returns>The filtered list of dog entities.</returns>
     [HttpGet]
     [ProducesResponseType(typeof(IEnumerable<DogDto>), (int)HttpStatusCode.OK)]
-    public async Task<ActionResult<IEnumerable<DogDto>>> GetFilteredDogsList(PaginationFilter paginationFilter, SortFilter sortFilter)
+    public async Task<ActionResult<IEnumerable<DogDto>>> GetFilteredDogsList([FromQuery] PaginationFilter paginationFilter,[FromQuery] SortFilter sortFilter)
     {
         var query = new GetDogsListQuery(paginationFilter, sortFilter);
         var dogs = await _mediator.Send(query);

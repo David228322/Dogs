@@ -7,9 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dogs.API", "Dogs.API\Dogs.A
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dogs.Domain", "Dogs.Domain\Dogs.Domain.csproj", "{AEECE598-4978-45F9-B736-7312B67C8243}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dogs.Application", "Dogs.Application\Dogs.Application.csproj", "{232EBB2E-0A18-42A1-9A0D-5BBECB7C2F39}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dogs.Application", "Dogs.Application\Dogs.Application.csproj", "{232EBB2E-0A18-42A1-9A0D-5BBECB7C2F39}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dogs.Infrastructure", "Dogs.Infrastructure\Dogs.Infrastructure.csproj", "{9E19DF6C-6227-4C83-8A84-521566AB42FB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dogs.Infrastructure", "Dogs.Infrastructure\Dogs.Infrastructure.csproj", "{9E19DF6C-6227-4C83-8A84-521566AB42FB}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{684B237C-57F3-4729-8C06-B5DADA84AE22}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{9E19DF6C-6227-4C83-8A84-521566AB42FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9E19DF6C-6227-4C83-8A84-521566AB42FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9E19DF6C-6227-4C83-8A84-521566AB42FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{684B237C-57F3-4729-8C06-B5DADA84AE22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{684B237C-57F3-4729-8C06-B5DADA84AE22}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{684B237C-57F3-4729-8C06-B5DADA84AE22}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{684B237C-57F3-4729-8C06-B5DADA84AE22}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
