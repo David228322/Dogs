@@ -19,4 +19,9 @@
     <Folder Include="Controllers\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Dogs.Application\Dogs.Application.csproj" />
+    <ProjectReference Include="..\Dogs.Infrastructure\Dogs.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>
