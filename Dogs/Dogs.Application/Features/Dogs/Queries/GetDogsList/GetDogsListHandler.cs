@@ -11,18 +11,18 @@ namespace Dogs.Application.Features.Dogs.Queries.GetDogsList
 {
     internal class GetDogsListHandler : IRequestHandler<GetDogsListQuery, IEnumerable<DogDto>>
     {
-        private readonly IDogRepository _dogRepository;
         private readonly IMapper _mapper;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public GetDogsListHandler(IDogRepository dogRepository, IMapper mapper)
+        public GetDogsListHandler(IMapper mapper, IUnitOfWork unitOfWork)
         {
-            _dogRepository = dogRepository;
             _mapper = mapper;
+            _unitOfWork = unitOfWork;
         }
 
         public async Task<IEnumerable<DogDto>> Handle(GetDogsListQuery request, CancellationToken cancellationToken)
         {
-            var orders = await _dogRepository.GetFilteredAsync(request.PaginationFilter, request.SortFilter);
+            var orders = await _unitOfWork.DogRepository.GetFilteredAsync(request.PaginationFilter, request.SortFilter);
             var result = _mapper.Map<IEnumerable<DogDto>>(orders);
             return result;
         }
