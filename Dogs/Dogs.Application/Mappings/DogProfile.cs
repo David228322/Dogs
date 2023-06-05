@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Dogs.Application.Features.Dogs.Commands.CreateDog;
 using Dogs.Application.Features.Dogs.Queries.GetDogsList;
 using Dogs.Domain.Entities;
 
@@ -15,5 +16,6 @@ public class DogProfile : Profile
     public DogProfile()
     {
         CreateMap<Dog, DogDto>().ReverseMap();
+        CreateMap<Dog, CreateDogCommand>().ReverseMap();
     }
 }

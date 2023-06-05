@@ -1,7 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
+using Dogs.Application.Exceptions;
+using Dogs.Application.Features.Dogs.Commands.CreateDog;
 using Dogs.Application.Features.Dogs.Queries.GetDogsList;
+using Dogs.Application.Models;
 using Dogs.Application.Models.Filters;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -49,5 +52,32 @@ public class DogController : ControllerBase
         var query = new GetDogsListQuery(paginationFilter, sortFilter);
         var dogs = await _mediator.Send(query);
         return Ok(dogs);
+    }
+    
+    /// <summary>
+    /// Creates a new dog.
+    /// </summary>
+    /// <param name="request">The command to create a new dog.</param>
+    /// <returns>The ID of the created dog.</returns>
+    [HttpPost]
+    [ProducesResponseType(typeof(int), (int)HttpStatusCode.OK)]
+    public async Task<ActionResult<IEnumerable<DogDto>>> CreateNewDog([FromBody] CreateDogCommand request)
+    {
+        try
+        {
+            var query = new CreateDogCommand(request.Name, request.Color, request.TailLength, request.Weight);
+            var dogId = await _mediator.Send(query);
+            return Ok(dogId);
+        }
+        catch (ValidationException ex)
+        {
+            var errorResponse = new ErrorResponse
+            {
+                ErrorCode = "ValidationFailed",
+                Message = "One or more validation errors occurred",
+                ValidationErrors = ex.Errors
+            };
+            return BadRequest(errorResponse);
+        }
     }
 }

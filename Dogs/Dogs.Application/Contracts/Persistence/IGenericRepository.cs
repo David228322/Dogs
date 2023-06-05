@@ -52,4 +52,14 @@ public interface IGenericRepository<T> where T : BaseEntity
     /// <param name="entity">The entity to delete.</param>
     /// <returns>An asynchronous operation.</returns>
     Task DeleteAsync(T entity);
+
+    /// <summary>
+    /// Checks if any entity matching the specified predicate exists in the repository.
+    /// </summary>
+    /// <param name="predicate">The predicate used to filter entities (optional).</param>
+    /// <param name="cancellationToken">The cancellation token (optional).</param>
+    /// <returns>True if an entity matching the predicate exists, otherwise false.</returns>
+    Task<bool> ExistAsync(
+        Expression<Func<T, bool>> predicate = null,
+        CancellationToken cancellationToken = default);
 }

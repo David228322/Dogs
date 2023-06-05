@@ -82,4 +82,17 @@ public class GenericRepository<T> : IGenericRepository<T> where T : BaseEntity
             _dbSet.Remove(entity);
             await _dbContext.SaveChangesAsync();
         }
+        
+        /// <inheritdoc />
+        public async Task<bool> ExistAsync(
+            Expression<Func<T, bool>> predicate = null,
+            CancellationToken cancellationToken = default)
+        {
+            if (predicate is not null)
+            {
+                return await _dbSet.AnyAsync(predicate, cancellationToken);
+            }
+        
+            return await _dbSet.AnyAsync(cancellationToken);
+        }
     }

@@ -15,16 +15,16 @@ namespace Dogs.Application.Models.Filters
         /// <summary>
         /// Gets or sets the offset value for pagination.
         /// </summary>
-        public int PageNumber { get; set; }
+        [Range(0, int.MaxValue)]
+        public int PageNumber { get; set; } = 0;
 
         /// <summary>
         /// Gets or sets the size of each page in pagination.
         /// </summary>
         /// <remarks>
-        /// The size should be between 1 and 50 (inclusive).
         /// The default value is 10.
         /// </remarks>
-        [Range(1, 50)]
+        [Range(1, int.MaxValue)]
         public int PageSize { get; set; } = 10;
     }
 }

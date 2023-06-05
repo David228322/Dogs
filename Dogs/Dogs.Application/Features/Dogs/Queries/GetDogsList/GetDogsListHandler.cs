@@ -23,8 +23,8 @@ namespace Dogs.Application.Features.Dogs.Queries.GetDogsList
         public async Task<IEnumerable<DogDto>> Handle(GetDogsListQuery request, CancellationToken cancellationToken)
         {
             var orders = await _unitOfWork.DogRepository.GetFilteredAsync(request.PaginationFilter, request.SortFilter);
-            var result = _mapper.Map<IEnumerable<DogDto>>(orders);
-            return result;
+            var dogs = _mapper.Map<IEnumerable<DogDto>>(orders);
+            return dogs;
         }
     }
 }
