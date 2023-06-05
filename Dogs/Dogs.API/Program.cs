@@ -8,6 +8,7 @@ using System.IO;
 using System.Reflection;
 using System;
 using Dogs.API.Extensions;
+using Dogs.API.Middlewares;
 using Dogs.Infrastructure.Persistence;
 using Microsoft.Extensions.Logging;
 
@@ -23,6 +24,7 @@ builder.Services.AddApplicationServices();
 builder.Services.AddInfrastructureServices(builder.Configuration);
 
 builder.Services.AddControllers();
+builder.Services.AddMemoryCache();
 
 
 builder.Services.AddEndpointsApiExplorer();
@@ -41,13 +43,15 @@ app.MigrateDatabase<DogContext>((context, service) =>
     DogSeedContext.SeedAsync(context, logger).Wait();
 });
 
+app.UseMiddleware<RateLimitMiddleware>();
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI(opt =>
     {
-        opt.SwaggerEndpoint("v1/swagger.json", "Rise API");
+        opt.SwaggerEndpoint("v1/swagger.json", "Dog API");
         opt.RoutePrefix = "swagger";
     });
 }
