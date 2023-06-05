@@ -21,7 +21,10 @@ public static class InfrastructureServiceRegistration
     public static IServiceCollection AddInfrastructureServices(this IServiceCollection services, IConfiguration configuration)
     {
         services.AddDbContext<DogContext>(options =>
-            options.UseSqlServer(configuration.GetConnectionString("DogConnectionString")));
+        {
+            var connString = configuration.GetConnectionString("DogsConnectionString");
+            options.UseSqlServer(connString);
+        });
 
         services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
         services.AddScoped<IDogRepository, DogRepository>();

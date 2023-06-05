@@ -23,7 +23,7 @@ services:
     container_name: dogs.api
     environment:
       ASPNETCORE_ENVIRONMENT: ${ASPNETCORE_ENVIRONMENT}
-      ConnectionStrings__DogsConnectionString: ${DB_CONNECTION}"
+      ConnectionStrings__DogsConnectionString: ${DB_CONNECTION}
     depends_on:
       - dogsdb
     ports:
