@@ -1,5 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-using Dogs.API.Controllers.V1;
+﻿using Dogs.API.Controllers.V1;
 using Dogs.Application.Features.Dogs.Commands.CreateDog;
 using Dogs.Application.Features.Dogs.Queries.GetDogsList;
 using Dogs.Application.Models;
@@ -8,7 +7,6 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Moq;
 using Xunit;
-using Dogs.Application.Exceptions;
 using Dogs.Domain.Entities;
 using FluentValidation.Results;
 using ValidationException = Dogs.Application.Exceptions.ValidationException;

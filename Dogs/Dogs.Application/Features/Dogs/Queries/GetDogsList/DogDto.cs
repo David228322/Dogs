@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Dogs.Application.Features.Dogs.Queries.GetDogsList
+﻿namespace Dogs.Application.Features.Dogs.Queries.GetDogsList
 {
     /// <summary>
     /// Represents a dog dto entity.

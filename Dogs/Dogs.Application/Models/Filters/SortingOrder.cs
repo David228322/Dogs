@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Dogs.Application.Models.Filters
+﻿namespace Dogs.Application.Models.Filters
 {
     /// <summary>
     /// Specifies the sorting order for a collection.

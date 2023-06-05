@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using Dogs.Application.Contracts.Persistence;
-using Dogs.Application.Features.Dogs.Queries.GetDogsList;
 using Dogs.Domain.Entities;
 using MediatR;
 

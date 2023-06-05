@@ -1,6 +1,4 @@
 ﻿using Dogs.Application.Contracts.Persistence;
-using Dogs.Application.Features.Dogs.Queries.GetDogsList;
-using Dogs.Application.Models.Filters;
 using Dogs.Domain.Entities;
 using Dogs.Infrastructure.Persistence;
 

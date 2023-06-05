@@ -1,7 +1,5 @@
-﻿using System.Collections;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.Linq.Expressions;
-using Azure;
 using Dogs.Application.Contracts.Persistence;
 using Dogs.Application.Models.Filters;
 using Dogs.Domain.Common;

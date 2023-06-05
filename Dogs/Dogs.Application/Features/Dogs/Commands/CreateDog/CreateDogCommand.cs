@@ -1,5 +1,4 @@
-﻿using Dogs.Application.Features.Dogs.Queries.GetDogsList;
-using MediatR;
+﻿using MediatR;
 
 namespace Dogs.Application.Features.Dogs.Commands.CreateDog;
 

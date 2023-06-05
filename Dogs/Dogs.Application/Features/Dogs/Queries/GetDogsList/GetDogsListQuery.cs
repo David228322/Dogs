@@ -1,11 +1,5 @@
 ﻿using Dogs.Application.Models.Filters;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Dogs.Application.Features.Dogs.Queries.GetDogsList
 {
