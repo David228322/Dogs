@@ -27,8 +27,8 @@ public class GetDogsListHandlerTests
     {
         // Arrange
         var query = new GetDogsListQuery(new PaginationFilter(), new SortFilter());
-        var dogs = new List<Dog> { new Dog { Id = 1, Name = "Fido" }, new Dog { Id = 2, Name = "Rex" } };
-        var dogDtos = new List<DogDto> { new DogDto { Name = "Fido" }, new DogDto { Name = "Rex" } };
+        var dogs = new List<Dog> { new() { Id = 1, Name = "Fido" }, new() { Id = 2, Name = "Rex" } };
+        var dogDtos = new List<DogDto> { new() { Name = "Fido" }, new() { Name = "Rex" } };
         _mockUnitOfWork.Setup(u => u.DogRepository.GetFilteredAsync(query.PaginationFilter, query.SortFilter)).ReturnsAsync(dogs);
         _mockMapper.Setup(m => m.Map<IEnumerable<DogDto>>(dogs)).Returns(dogDtos);
 
